@@ -46,6 +46,7 @@ button{
     border: none;
     font-size: 1rem;
     font-weight: bold;
+    cursor: pointer;
 
 }
 
@@ -65,6 +66,7 @@ button{
 
 .note{
     height: 50px;
+    cursor: pointer;
 }
 
 .notes-hr{
@@ -72,8 +74,6 @@ button{
     margin-bottom: 0px;
     border: 1px solid #f5efeb9f;
     border-radius: 5px;
-    
-
 }
 
 .markdown-section{

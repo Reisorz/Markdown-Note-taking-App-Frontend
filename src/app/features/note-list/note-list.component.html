@@ -5,24 +5,8 @@
         <button class="create-note-button">Create Note</button>
         <button class="upload-note-button">Upload Note</button>
         <div class="notes-list">
-            <!-- <div *ngFor="let note of notes">
-                <div>Note Name</div>
-                <hr class="notes-hr">
-            </div> -->
-            <div class="note">
-                <div>Note Name</div>
-                <hr class="notes-hr">
-            </div>
-            <div class="note">
-                <div>Note Name</div>
-                <hr class="notes-hr">
-            </div>
-            <div class="note">
-                <div>Note Name</div>
-                <hr class="notes-hr">
-            </div>
-            <div class="note">
-                <div>Note Name</div>
+            <div *ngFor="let note of notes" class="note" (click)="loadNote(note.id)" >
+                <div>{{note.title}}</div>
                 <hr class="notes-hr">
             </div>
         </div>
