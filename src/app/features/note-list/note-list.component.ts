@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 export class NoteListComponent {
 
   notes: NoteEntity[] = [];
-  note: NoteEntity;
+  selectedNote: NoteEntity = new NoteEntity;
 
   constructor(private router: Router, private noteService: NoteService){
 
@@ -32,8 +32,8 @@ export class NoteListComponent {
 
   loadNote(id: number){
     this.noteService.getNoteById(id).subscribe({
-      next: (data) => {this.note = data,
-        console.log(this.note)
+      next: (data) => {this.selectedNote = data,
+        console.log(this.selectedNote)
     },
         error: (error:any) => console.log(error)
     })

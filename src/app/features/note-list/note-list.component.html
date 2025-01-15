@@ -14,9 +14,18 @@
     <section class="markdown-section">
         <h2>Markdown</h2>
         <hr class="content-section-hr">
+        <form class="markdown-form">
+            <input class="title-input" type="text" name="title">
+            <textarea class="markdownContent-input" name="markdownContent" required="required"></textarea>
+            <button class="save-changes-button"> Save changes</button>
+        </form>
     </section>
     <section class="html-section">
         <h2>HTML</h2>
         <hr class="content-section-hr">
+        <div class="html-div">
+            <div class="html-title">{{selectedNote.title}}</div>
+            <div class="html-content">{{selectedNote.htmlContent}}</div>
+        </div>
     </section>
 </div>
