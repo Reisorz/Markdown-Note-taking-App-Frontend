@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NoteEntity } from '../model/note-entity';
+import { NoteRequest } from '../model/note-request';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class NoteService {
   }
 
   getNoteById(id: number){
-    return this.http.get<NoteEntity>(`${this.urlBase}/get-note-by-id/${id}`)
+    return this.http.get<NoteEntity>(`${this.urlBase}/get-note-by-id/${id}`);
+  }
+
+  createNote(noteRequest: NoteRequest) {
+    return this.http.post<NoteEntity>(`${this.urlBase}/create-note`, noteRequest);
   }
 }

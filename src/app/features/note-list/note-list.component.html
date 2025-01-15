@@ -2,10 +2,10 @@
     <section class="note-list-section">
         <h2>Notes</h2>
         <hr class="notes-section-hr">
-        <button class="create-note-button">Create Note</button>
+        <button (click)="createNote()" class="create-note-button">Create Note</button>
         <button class="upload-note-button">Upload Note</button>
         <div class="notes-list">
-            <div *ngFor="let note of notes" class="note" (click)="loadNote(note.id)" >
+            <div *ngFor="let note of notes" class="note" (click)="loadNote(note.id!)" >
                 <div>{{note.title}}</div>
                 <hr class="notes-hr">
             </div>
@@ -15,8 +15,8 @@
         <h2>Markdown</h2>
         <hr class="content-section-hr">
         <form class="markdown-form">
-            <input class="title-input" type="text" name="title">
-            <textarea class="markdownContent-input" name="markdownContent" required="required"></textarea>
+            <input class="title-input" type="text" name="title" [(ngModel)]="selectedNote.title">
+            <textarea class="markdownContent-input" name="markdownContent" required="required" [(ngModel)]="selectedNote.markdownContent"></textarea>
             <button class="save-changes-button"> Save changes</button>
         </form>
     </section>

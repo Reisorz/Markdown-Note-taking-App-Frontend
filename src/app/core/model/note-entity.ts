@@ -1,5 +1,5 @@
 export class NoteEntity {
-    id: number;
+    id?: number;
     title: string;
     filePath: string;
     markdownContent: string;
