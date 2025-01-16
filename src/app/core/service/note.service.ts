@@ -23,4 +23,10 @@ export class NoteService {
   createNote(noteRequest: NoteRequest) {
     return this.http.post<NoteEntity>(`${this.urlBase}/create-note`, noteRequest);
   }
+
+  updateNote(noteEntity: NoteEntity) {
+    return this.http.put<NoteEntity>(`${this.urlBase}/update-note`, noteEntity);
+  }
+
+
 }

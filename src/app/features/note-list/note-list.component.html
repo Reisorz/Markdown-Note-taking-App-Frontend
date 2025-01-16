@@ -5,7 +5,7 @@
         <button (click)="createNote()" class="create-note-button">Create Note</button>
         <button class="upload-note-button">Upload Note</button>
         <div class="notes-list">
-            <div *ngFor="let note of notes" class="note" (click)="loadNote(note.id!)" >
+            <div *ngFor="let note of notes.reverse()" class="note" (click)="loadNote(note.id!)" >
                 <div>{{note.title}}</div>
                 <hr class="notes-hr">
             </div>
@@ -17,7 +17,7 @@
         <form class="markdown-form">
             <input class="title-input" type="text" name="title" [(ngModel)]="selectedNote.title">
             <textarea class="markdownContent-input" name="markdownContent" required="required" [(ngModel)]="selectedNote.markdownContent"></textarea>
-            <button class="save-changes-button"> Save changes</button>
+            <button (click)="updateNote()" class="save-changes-button"> Save changes</button>
         </form>
     </section>
     <section class="html-section">

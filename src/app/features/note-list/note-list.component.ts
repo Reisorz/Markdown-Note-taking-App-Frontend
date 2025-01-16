@@ -52,4 +52,14 @@ export class NoteListComponent {
     })
   }
 
+  updateNote() {
+    this.noteService.updateNote(this.selectedNote).subscribe({
+      next: (data) => {this.selectedNote = data,
+        this.loadNoteList();
+        console.log(this.selectedNote)
+    },
+        error: (error:any) => console.log(error)
+    })
+  }
+
 }
