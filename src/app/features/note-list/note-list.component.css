@@ -60,6 +60,10 @@ button{
     background-color: #F5EFEB;
 }
 
+.upload-input {
+    display: none;
+}
+
 .notes-list {
     margin: 20px;
     overflow-y: auto;
@@ -121,8 +125,13 @@ input, textarea {
 }
 
 .save-changes-button {
-    width: 200px;
+    display: flex;
+    width: 300px;
     background-color: #C8D9E6;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
 }
 
 .html-section{

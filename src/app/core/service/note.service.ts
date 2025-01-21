@@ -28,5 +28,11 @@ export class NoteService {
     return this.http.put<NoteEntity>(`${this.urlBase}/update-note`, noteEntity);
   }
 
+  uploadNote(uploadedFile: File) {
+    const formData = new FormData();
+    formData.append('file', uploadedFile, uploadedFile.name);
+    return this.http.post<NoteEntity>(`${this.urlBase}/upload-note`, formData);
+  }
+
 
 }

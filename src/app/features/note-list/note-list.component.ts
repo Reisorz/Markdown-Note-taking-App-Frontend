@@ -5,6 +5,7 @@ import { NoteEntity } from '../../core/model/note-entity';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NoteRequest } from '../../core/model/note-request';
+import { error } from 'node:console';
 
 @Component({
   selector: 'app-note-list',
@@ -18,6 +19,7 @@ export class NoteListComponent {
   notes: NoteEntity[] = [];
   selectedNote: NoteEntity = new NoteEntity;
   noteResquest: NoteRequest = new NoteRequest;
+  uploadedFile: File;
 
   constructor(private router: Router, private noteService: NoteService){
 
@@ -46,7 +48,8 @@ export class NoteListComponent {
     this.noteResquest.title = "New note";
     this.noteResquest.markdownContent = "";
     this.noteService.createNote(this.noteResquest).subscribe({
-      next: (data) => {this.loadNoteList()
+      next: (data) => {this.loadNoteList(),
+        this.selectedNote = data;
     },
         error: (error:any) => console.log(error)
     })
@@ -59,6 +62,22 @@ export class NoteListComponent {
         console.log(this.selectedNote)
     },
         error: (error:any) => console.log(error)
+    })
+  }
+
+  uploadFile(event: Event){
+
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.uploadedFile = input.files[0];
+      console.log('File selected:', this.uploadedFile.name);
+    }
+
+    this.noteService.uploadNote(this.uploadedFile).subscribe({
+      next: (data) => {this.loadNoteList(),
+        this.selectedNote = data
+      },
+      error: (error:any) => console.log(error)
     })
   }
 
