@@ -34,5 +34,9 @@ export class NoteService {
     return this.http.post<NoteEntity>(`${this.urlBase}/upload-note`, formData);
   }
 
+  deleteNote(id: number) {
+    return this.http.delete(`${this.urlBase}/delete-note/${id}`)
+  }
+
 
 }

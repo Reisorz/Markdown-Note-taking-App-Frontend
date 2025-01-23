@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NoteRequest } from '../../core/model/note-request';
 import { error } from 'node:console';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-note-list',
   standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule],
+  imports: [RouterModule, CommonModule, FormsModule, ToastrModule],
   templateUrl: './note-list.component.html',
   styleUrl: './note-list.component.css'
 })
@@ -21,7 +22,7 @@ export class NoteListComponent {
   noteResquest: NoteRequest = new NoteRequest;
   uploadedFile: File;
 
-  constructor(private router: Router, private noteService: NoteService){
+  constructor(private router: Router, private noteService: NoteService, private toastr: ToastrService){
 
     this.loadNoteList();
   }
@@ -57,11 +58,14 @@ export class NoteListComponent {
 
   updateNote() {
     this.noteService.updateNote(this.selectedNote).subscribe({
-      next: (data) => {this.selectedNote = data,
-        this.loadNoteList();
+      next: (data) => {this.selectedNote = data
+        this.loadNoteList()
         console.log(this.selectedNote)
+        this.toastr.success("Your note has been updated succesfully.", "Note updated!")
     },
-        error: (error:any) => console.log(error)
+        error: (error:any) => {console.log(error),
+          this.toastr.error("You need to select a note first.", "No note selected.")
+        }
     })
   }
 
@@ -75,10 +79,29 @@ export class NoteListComponent {
 
     this.noteService.uploadNote(this.uploadedFile).subscribe({
       next: (data) => {this.loadNoteList(),
-        this.selectedNote = data
+        this.selectedNote = data,
+        this.toastr.success("Your note has been uploaded succesfully.", "Note uploaded!")
       },
       error: (error:any) => console.log(error)
     })
+  }
+
+  deleteNote(noteId: number) {
+    this.noteService.deleteNote(noteId).subscribe({
+      next: (data) => {this.loadNoteList(),
+        this.clearSelectedNote(),
+        this.toastr.success("Your note has been deleted succesfully.", "Note deleted!")
+      },
+      error: (error:any) => console.log(error)
+    })
+  }
+
+  clearSelectedNote(){
+    this.selectedNote.id = undefined;
+    this.selectedNote.htmlContent = "";
+    this.selectedNote.filePath = "";
+    this.selectedNote.markdownContent = "";
+    this.selectedNote.title = "";
   }
 
 }

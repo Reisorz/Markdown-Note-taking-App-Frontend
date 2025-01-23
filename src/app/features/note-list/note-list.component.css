@@ -70,6 +70,17 @@ button{
     overflow-x: hidden; 
 }
 
+.note-list-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+}
+
+.note-list-title span {
+    margin-right: 15px;
+}
+
 .note{
     height: 50px;
     cursor: pointer;
@@ -173,6 +184,4 @@ input, textarea {
     background-color: #F5EFEB;
     overflow-y: auto;
     overflow-x: hidden; 
-    
-
-}
+    }
