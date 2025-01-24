@@ -9,13 +9,16 @@
                 <div class="note-list-title">
                     <div>{{note.title}}</div>
                     <span (click)="deleteNote(note.id!)" class="material-symbols-outlined">delete</span>
-                </div>                
+                </div>
                 <hr class="notes-hr">
             </div>
         </div>
     </section>
     <section class="markdown-section">
-        <h2>Markdown</h2>
+        <div class="markdown-header">
+            <h2>Markdown</h2>
+            <button class="check-grammar-button" routerLink="/check-grammar">Check grammar</button>
+        </div>
         <hr class="content-section-hr">
         <form class="markdown-form">
             <input class="title-input" type="text" name="title" [(ngModel)]="selectedNote.title">

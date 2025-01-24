@@ -79,6 +79,7 @@ button{
 
 .note-list-title span {
     margin-right: 15px;
+    margin-left: 15px;
 }
 
 .note{
@@ -100,6 +101,21 @@ button{
     color: #2F4156;
     height: 100%;
     width: 40%;
+}
+
+.markdown-header {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+    
+}
+
+.check-grammar-button {
+    height: 30px;
+    align-self: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #C8D9E6;
 }
 
 .markdown-form, .html-div {
@@ -173,6 +189,7 @@ input, textarea {
 .html-content {
     font-size: 1rem;
     height: 75%;
+    max-height: 630px;
     resize: none;
     margin-bottom: 20px;
     border-radius: 15px;
@@ -184,4 +201,5 @@ input, textarea {
     background-color: #F5EFEB;
     overflow-y: auto;
     overflow-x: hidden; 
+    white-space: pre-wrap;
     }

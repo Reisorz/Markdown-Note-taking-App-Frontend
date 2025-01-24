@@ -58,13 +58,13 @@ export class NoteListComponent {
 
   updateNote() {
     this.noteService.updateNote(this.selectedNote).subscribe({
-      next: (data) => {this.selectedNote = data
-        this.loadNoteList()
-        console.log(this.selectedNote)
-        this.toastr.success("Your note has been updated succesfully.", "Note updated!")
+      next: (data) => {this.selectedNote = data;
+        this.loadNoteList();
+        console.log(this.selectedNote);
+        this.toastr.success("Your note has been updated succesfully.", "Note updated!");
     },
-        error: (error:any) => {console.log(error),
-          this.toastr.error("You need to select a note first.", "No note selected.")
+        error: (error:any) => {console.log(error);
+          this.toastr.error("You need to select a note first.", "No note selected.");
         }
     })
   }
