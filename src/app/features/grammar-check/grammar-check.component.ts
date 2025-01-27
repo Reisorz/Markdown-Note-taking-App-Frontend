@@ -24,7 +24,6 @@ export class GrammarCheckComponent {
   noteId: number;
   note: NoteEntity = new NoteEntity;
   grammarRequest: GrammarRequest = new GrammarRequest;
-  renderedMarkdown: string = '';
   grammarResponse: GrammarResponse[] = [];
   
 
@@ -42,10 +41,9 @@ export class GrammarCheckComponent {
   }
 
   checkGrammar(){
-    console.log(this.grammarRequest);
+    this.grammarResponse = [];
     this.grammarRequest.text = this.note.markdownContent;
     this.grammarRequest.language = "en-US";
-    console.log(this.grammarRequest);
     this.grammarService.checkGrammar(this.grammarRequest).subscribe({
       next: (data: any) => { data.forEach((grammarMatch: GrammarResponse) => {
         this.grammarResponse.push(grammarMatch);
@@ -53,6 +51,18 @@ export class GrammarCheckComponent {
         console.log(this.grammarResponse);
       },
       error: (error:any) => console.log(error)
+    })
+  }
+
+  updateNote() {
+    this.noteService.updateNote(this.note).subscribe({
+      next: (data) => {this.note = data;
+        console.log(this.note);
+        this.router.navigate(["/note-list"]);
+        this.toastr.success("Your note has been updated succesfully.", "Note updated!");
+    },
+        error: (error:any) => {console.log(error);
+        }
     })
   }
 

@@ -3,14 +3,14 @@
         <div class="markdown-renderer-header">
             <h2>Markdown renderer</h2>
             <div class="buttons-div">
-                <button class="save-changes-button">Save changes</button>
+                <button (click)="updateNote()" class="save-changes-button">Save changes</button>
                 <button routerLink="/note-list" class="cancel-button">Cancel</button>
             </div>
         </div>
         <hr class="titles-hr">
         <div class="markdown-renderer-div">
             <div class="note-title">{{note.title}}</div>
-            <textarea class="note-content-input" name="markdownContent" required="required">{{note.markdownContent}}</textarea>
+            <textarea class="note-content-input" name="markdownContent" required="required" [(ngModel)]="note.markdownContent"></textarea>
         </div>
     </section>
     <section class="grammar-error-section">
@@ -20,6 +20,7 @@
         </div>
         <hr class="titles-hr">
         <div class="corrections-div">
+            <div class="correction" *ngIf="grammarResponse.length === 0">No grammar errors! Congrats!</div>
             <div *ngFor="let correction of grammarResponse" class="correction">
                 <div><strong>Error message:</strong> {{correction.message}}</div>
                 <div><strong>Found in sentence:</strong> {{correction.sentence}}</div>
