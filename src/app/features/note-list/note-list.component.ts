@@ -104,4 +104,12 @@ export class NoteListComponent {
     this.selectedNote.title = "";
   }
 
+  navigateToGrammarCheck(id: number | undefined) {
+    if(id == undefined) {
+      this.toastr.error("You need to select a note first.", "Select a note")
+    } else{
+      this.router.navigate([`/grammar-check/${id}`])
+    }
+  }
+
 }

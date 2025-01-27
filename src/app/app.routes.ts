@@ -5,5 +5,5 @@ import { GrammarCheckComponent } from './features/grammar-check/grammar-check.co
 export const routes: Routes = [
     {path: 'note-list', component: NoteListComponent},
     {path: '', redirectTo: 'note-list', pathMatch: 'full'},
-    {path: 'check-grammar', component: GrammarCheckComponent}
+    {path: 'grammar-check/:id', component: GrammarCheckComponent}
 ];

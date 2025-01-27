@@ -4,25 +4,27 @@
             <h2>Markdown renderer</h2>
             <div class="buttons-div">
                 <button class="save-changes-button">Save changes</button>
-                <button class="cancel-button">Cancel</button>
+                <button routerLink="/note-list" class="cancel-button">Cancel</button>
             </div>
-            
         </div>
-        
         <hr class="titles-hr">
         <div class="markdown-renderer-div">
-            <div class="note-title"></div>
-            <textarea class="note-content-input" name="markdownContent" required="required"></textarea>
+            <div class="note-title">{{note.title}}</div>
+            <textarea class="note-content-input" name="markdownContent" required="required">{{note.markdownContent}}</textarea>
         </div>
     </section>
     <section class="grammar-error-section">
-        <h2>Grammar corrections</h2>
+        <div class="grammar-error-header">
+            <h2>Grammar corrections</h2>
+            <button (click)="checkGrammar()">Check grammar</button>
+        </div>
         <hr class="titles-hr">
         <div class="corrections-div">
-            <div class="correction">Example correction</div>
-            <div class="correction">Example correction</div>
-            <div class="correction">Example correction</div>
+            <div *ngFor="let correction of grammarResponse" class="correction">
+                <div><strong>Error message:</strong> {{correction.message}}</div>
+                <div><strong>Found in sentence:</strong> {{correction.sentence}}</div>
+                <div><strong>Fix suggestions: </strong> {{correction.replacements}}</div>
+            </div>
         </div>
     </section>
-    
 </div>

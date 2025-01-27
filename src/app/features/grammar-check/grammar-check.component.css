@@ -35,6 +35,10 @@ h2{
     justify-content: space-between;
 }
 
+.note-content-input .note-title{
+    font-family: 'Times New Roman', Times, serif;
+}
+
 .buttons-div{
     display: flex;
     justify-content: center;
@@ -111,6 +115,13 @@ button{
     color: #2F4156;
     height: 100%;
     width: 40%;
+}
+
+.grammar-error-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 30px;
 }
 
 .corrections-div {
