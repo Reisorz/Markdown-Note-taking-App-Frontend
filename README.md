@@ -1,27 +1,31 @@
-# MarkdownNoteTakingAppFrontend
+# Markdown note taking app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
+**Markdown note taking app** permits to make notes in markdown and translate them into HTML, and save them in .md files and in the database. Also you can check the grammar of your notes using an external api called LanguageTool.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🔑Key Features
 
-## Code scaffolding
+- Perform **CRUD** operations with the notes.
+- Upload **.md files** through the API and store them.
+- Translate them from **markdown to HTML**.
+- **Check the grammar** with an external api.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## 🚀Technologies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Java**
+- **MySQL**
+- **Spring Boot**
+- **HTML & CSS**
+- **TypeScript**
+- **Angular**
 
-## Running unit tests
+## 🖥️​Visual
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Note list
+![Note-list](https://github.com/user-attachments/assets/3dbf6e6b-55d3-47a1-bd64-665bb26945de)
+### Grammar-checker
+![Grammar-checker](https://github.com/user-attachments/assets/20fefa3f-84c0-484e-860b-83eb11412bd1)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 👋​Thanks for your time!
